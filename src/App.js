@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
+  const [todos, setTodos] = useState([])
+
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((todo, index) => index !== id))
+  
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    <> 
+    <ToastContainer />
+     <h1>Todo App</h1>
+      
+
+    <TodoForm setTodos={setTodos} todos={todos} />
+    <TodoList todos={todos} deleteTodo={deleteTodo} />
+
+
+     
+     </>
+    
+  )
 }
 
 export default App;
