@@ -10,7 +10,7 @@ const TodoForm = ({setTodos,todos}) => {
         toast.error('Please Enter Your Todo')
       }else if (todos.includes(todoValue)){
         toast.error('Todo Already Exists')
-      }else if (todos.length < 5){
+      }else if (todoValue.length < 5){
         toast.error('Minimum characters required is 5')
       }else{
         const newTodo = todoValue.trim()
