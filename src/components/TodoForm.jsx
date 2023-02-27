@@ -14,6 +14,7 @@ const TodoForm = ({setTodos,todos}) => {
         toast.error('Minimum characters required is 5')
       }else{
         const newTodo = todoValue.trim()
+        
       
 
 
